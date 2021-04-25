@@ -27,6 +27,7 @@ body {
   perspective: 1000px;
   margin-bottom: 30px;
   align-items: center;
+  justify-content: space-between;
 }
 
 .seat {
@@ -36,6 +37,11 @@ body {
   margin: 3px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  text-align: center;
+}
+
+.seat.text{
+  position: relative;
 }
 
 .seat.selected {
@@ -71,6 +77,16 @@ body {
   cursor: default;
   transform: scale(1);
 }
+
+.row{
+  align-items: center;
+  font-size: 80%;
+}
+
+.RowLabel{
+  margin-right: 10px;
+}
+
 
 .showcase {
   background: rgba(0, 0, 0, 0.1);

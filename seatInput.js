@@ -20,7 +20,7 @@ function setHomePage(){
     const createNew = document.createElement('button');
     createNew.textContent = 'Create New Event'
     createNew.addEventListener('click', ev => {
-        seatInputForm(mainContainer);
+        createNewEvent(mainContainer);
     })
 
     homePageContainer.appendChild(homeMainP);
@@ -28,9 +28,8 @@ function setHomePage(){
     homePageContainer.appendChild(createNew);
 }
 
-function seatInputForm(mainContainer){
+function createNewEvent(mainContainer){
     mainContainer.innerHTML = '';
-
 
     const eventDataDiv = getEventData();
 
@@ -55,9 +54,7 @@ function setSeatListener(){
     });
 }
 
-function setConcertDisplay(numOfRows,seatsInRowDiv, eventName){
-    const mainContainer = document.getElementById('mainContainer');
-
+function getShowCase() {
     const showCase = document.createElement('ul');
     showCase.className = 'showcase';
 
@@ -92,8 +89,17 @@ function setConcertDisplay(numOfRows,seatsInRowDiv, eventName){
     showCase.appendChild(elemTwo);
     showCase.appendChild(elemThree);
 
-    mainContainer.appendChild(showCase)
+    return showCase
+}
+
+function setEventDisplay(numOfRows,seatsInRowDiv, eventName){
+    const mainContainer = document.getElementById('mainContainer');
+
+    const showCaseDiv = getShowCase();
+    mainContainer.appendChild(showCaseDiv);
+
     writeRows(numOfRows,seatsInRowDiv);
+
     const saveBtn = document.createElement('button');
     saveBtn.textContent = 'Save Event';
     saveBtn.addEventListener('click', ev => {
@@ -101,6 +107,8 @@ function setConcertDisplay(numOfRows,seatsInRowDiv, eventName){
     })
     body.appendChild(saveBtn);
 }
+
+
 function saveEvent(eventName, mainContainer){
     const seatsSelected = document.getElementsByClassName('selected');
     const numOfSeats = seatsSelected.length;
@@ -112,11 +120,11 @@ function saveEvent(eventName, mainContainer){
         }
 
     }
+
 }
 
 
 function writeRows(numOfRows, rowInputDiv){
-    const mainContainer = document.getElementById('mainContainer');
     const container = document.createElement('div');
     container.className = 'container';
 
@@ -128,11 +136,17 @@ function writeRows(numOfRows, rowInputDiv){
         const rowDiv = document.createElement('div');
         rowDiv.className = 'row';
 
-        seatsInRow = document.getElementById('row' + String(i));
+        getSeatsInRow = document.getElementById('row' + String(i));
 
-        for (let j = 0; j < seatsInRow.value; j++) {
+        let rowNumLabel = document.createElement('label');
+        rowNumLabel.className = 'RowLabel';
+        rowNumLabel.textContent = 'Row ' + String(i);
+        rowDiv.appendChild(rowNumLabel);
+
+        for (let j = 0; j < getSeatsInRow.value; j++) {
             const seat = document.createElement('div');
             seat.className = 'seat';
+            seat.textContent = String(j);
             rowDiv.appendChild(seat);
         }
         container.appendChild(rowDiv);
@@ -143,18 +157,19 @@ function writeRows(numOfRows, rowInputDiv){
 }
 
 
-function seatsInRow(numOfRows, eventDataDiv, eventName){
+function getSeatsInRow(numOfRows, eventDataDiv, eventName){
     const mainContainer = document.getElementById('mainContainer');
 
     eventDataDiv.remove();
-
 
     const seatsInRowDiv = document.createElement('div');
 
     for (let i = 0; i < numOfRows; i++) {
         let rowDiv = document.createElement('div')
+
         let rowLabel = document.createElement('label')
         rowLabel.textContent = 'Number of seats in row' + String(i+1) +': ';
+        
         let rowInput = document.createElement('input');
         rowInput.id= 'row'+String(i);
 
@@ -166,7 +181,7 @@ function seatsInRow(numOfRows, eventDataDiv, eventName){
     submitSeatsInRow.textContent = 'Submit';
     submitSeatsInRow.addEventListener('click', ev => {
 
-        setConcertDisplay(numOfRows,seatsInRowDiv, eventName);
+        setEventDisplay(numOfRows,seatsInRowDiv, eventName);
     })
 
     seatsInRowDiv.appendChild(submitSeatsInRow)
@@ -176,27 +191,30 @@ function seatsInRow(numOfRows, eventDataDiv, eventName){
 }
 
 function getEventData(){
+
     const eventDataDiv = document.createElement('div');
-    eventDataDiv.id = 'eventdata'
+    eventDataDiv.id = 'eventdata';
+
     const eventNameDiv = document.createElement('div');
     eventNameDiv.className = 'eventname';
+
     const eventNameLabel = document.createElement('label');
-    const eventNameInput = document.createElement('input');
     eventNameLabel.textContent = 'Enter Event Name: ';
 
+    const eventNameInput = document.createElement('input');
 
     const rowInputDiv = document.createElement('div');
     rowInputDiv.id = 'rowInput';
+
     let inputRowLabel = document.createElement('label');
     inputRowLabel.textContent = 'Enter number of rows: ';
+
     const inputRowField = getInputField('text', '', 'numofrows');
-
-
 
     const submitRowsBtn = document.createElement('button');
     submitRowsBtn.textContent = 'Submit';
     submitRowsBtn.addEventListener('click', e => {
-        seatsInRow(Number(inputRowField.value), eventDataDiv, eventNameInput.value);
+        getSeatsInRow(Number(inputRowField.value), eventDataDiv, eventNameInput.value);
     })
 
     eventNameDiv.appendChild(eventNameLabel);
