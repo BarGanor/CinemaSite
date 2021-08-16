@@ -256,3 +256,11 @@ p.text span {
 #event-form{
   color: white !important;
 }
+
+.select-div{
+  margin-top: 1vw !important;
+}
+
+.button-holder-central{
+  text-align: center;
+}

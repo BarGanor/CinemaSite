@@ -8,34 +8,18 @@ const settingApplied = (rows, seats, name, form) => {
 
 }
 
-const navbarOnSubmit = (navbarItem)=>{
-        if (navbarItem.url === '/homepage'){
-
-        }
-
-        else if(navbarItem.url ==='/new-movies'){
-
-
-        }
-
-
-        else if (navbarItem.url === '/login'){
-            container.innerHTML ='';
-            const loginPage = new LoginPage();
-            loginPage.render();
-        }
-
-}
-
-
 const startApp = (container) => {
     const navbarContainer = document.createElement('div');
     navbarContainer.className= 'navbar-container';
 
     body.insertBefore(navbarContainer, body.firstChild);
 
-    const navbar = new Navbar(navbarContainer, null);
+
+    const navbar = new Navbar(container,navbarContainer, null, );
     navbar.render();
+
+    const homePage = new HomePage(container);
+    homePage.render();
 }
 
 

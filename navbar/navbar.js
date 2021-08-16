@@ -1,20 +1,13 @@
 class Navbar {
 
-    constructor(container, userObj) {
+    constructor(container, navbarContainer,userObj) {
         this.container = container;
         this.userObj = userObj;
+        this.navbarContainer = navbarContainer
+
     }
 
-    setChosenPage(url){
-        if (url === '/login'){
-            const loginPage = new LoginPage(this.container);
-            loginPage.render();
-            console.log(url);
 
-        }
-        else{
-        }
-    }
 
     render() {
         const navbar = document.createElement('nav');
@@ -28,7 +21,7 @@ class Navbar {
         const tabs = [new NavbarItem('Home Page', '/homepage',()=>this.setChosenPage('/homepage')),
                     new NavbarItem('New Movies', '/new-movies', ()=> this.setChosenPage('/new-movies'))];
 
-        tabs.forEach(function (tab) {
+        tabs.forEach((tab)=> {
             navbarList.appendChild(tab.render());
         })
 
@@ -41,12 +34,33 @@ class Navbar {
             this.renderUser(navbarList);
         }
 
-        this.container.appendChild(navbar);
+        this.navbarContainer.appendChild(navbar);
+
+    }
+
+    setChosenPage(url){
+        this.container.innerHTML =''
+
+        if (url === '/login'){
+            const loginPage = new LoginPage(this.container);
+            loginPage.render();
+
+        }
+        else if (url==='/homepage'){
+            this.container.innerHTML =''
+            const homePage = new HomePage(this.container);
+            homePage.render();
+
+        }
+
+        else if (url==='/new-movies'){
+            this.container.innerHTML =''
+        }
 
     }
 
     renderGuestNavbar(list) {
-        const loginNav = new NavbarItem('Login', '/login',()=> this.onSubmit('/login'));
+        const loginNav = new NavbarItem('Login', '/login',()=> this.setChosenPage('/login'));
         list.appendChild(loginNav.render());
     }
 

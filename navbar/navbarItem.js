@@ -13,12 +13,10 @@ class NavbarItem {
         link.className = 'nav-link';
         link.text = this.navbarTxt;
 
-        if (this.url === '/login'){
-            link.addEventListener('click', ()=>{
+        link.addEventListener('click', ()=>{
+            this.onSubmit(this.url)
+        })
 
-                this.onSubmit(this.url)
-            })
-        } 
 
         item.appendChild(link);
 
