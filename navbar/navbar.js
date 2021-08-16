@@ -55,6 +55,8 @@ class Navbar {
 
         else if (url==='/new-movies'){
             this.container.innerHTML =''
+            const newMoviesPage = new NewMoviesPage(this.container);
+            newMoviesPage.render();
         }
 
     }
