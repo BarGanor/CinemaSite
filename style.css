@@ -15,9 +15,9 @@ body {
   --smoothDarkBlue : rgba(48, 51, 66, 0.38);
 }
 html,body{
-  background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+  background-image: url('https://images.cdn4.stockunlimited.net/preview1300/cinema-background-with-movie-objects_1823382.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   height: 100%;
   font-family: 'Numans', sans-serif;
 }
@@ -47,6 +47,10 @@ html,body{
 
 .card-header{
   color: var(--lightWhite);
+}
+
+.card-footer{
+ margin-top: 10vw;
 }
 .navbar{
   background-color: var(--smoothDarkBlue) ;
@@ -263,4 +267,19 @@ p.text span {
 
 .button-holder-central{
   text-align: center;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+img {
+  pointer-events: none;
+}
+.movie_card {
+  padding: 0 !important;
+  width: 22rem;
+  margin: 14px;
+  border-radius: 10px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
 }

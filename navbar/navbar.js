@@ -7,8 +7,6 @@ class Navbar {
 
     }
 
-
-
     render() {
         const navbar = document.createElement('nav');
         navbar.className = "navbar navbar-expand navbar-dark navbar-custom-bg";
@@ -42,20 +40,20 @@ class Navbar {
         this.container.innerHTML =''
 
         if (url === '/login'){
-            const loginPage = new LoginPage(this.container);
+            const loginPage = new MainPage(this.container, 'login');
             loginPage.render();
 
         }
         else if (url==='/homepage'){
             this.container.innerHTML =''
-            const homePage = new HomePage(this.container);
+            const homePage = new MainPage(this.container, 'home-page');
             homePage.render();
 
         }
 
         else if (url==='/new-movies'){
             this.container.innerHTML =''
-            const newMoviesPage = new NewMoviesPage(this.container);
+            const newMoviesPage = new MainPage(this.container, 'new-movies');
             newMoviesPage.render();
         }
 
