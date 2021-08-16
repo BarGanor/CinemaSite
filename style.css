@@ -1,35 +1,100 @@
-@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
-
-* {
-  box-sizing: border-box;
-}
-
 body {
-  background-color: #242333 !important;
-  color: #fff ;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  font-family: 'Lato', sans-serif;
-  margin: 0;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  /*height: 100vh;*/
+  /*font-family: 'Lato', sans-serif;*/
+  /*margin: 0;*/
 }
 
-
-.mainContainer{
-  perspective: 1000px;
-  margin-bottom: 30px;
-
+:root{
+  --lightGray: rgba(201, 201, 201, 0.56);
+  --navbarBlack: #2f2e2e;
+  --lightWhite:rgba(255, 255, 255, 0.7);
+  --smoothDarkBlue : rgba(48, 51, 66, 0.38);
 }
-body {
-  margin: 60px;
-  background: #111;
+html,body{
+  background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  font-family: 'Numans', sans-serif;
 }
+
+.container{
+  height: 100%;
+  align-content: center;
+}
+
+.nav-item:hover{
+  cursor: pointer;
+}
+
 #container{
   display: flex;
   flex-direction: column;
 }
+
+/*        Sign In Page      */
+.card{
+  margin-top: 5vw;
+  height: 370px;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+.card-header{
+  color: var(--lightWhite);
+}
+.navbar{
+  background-color: var(--smoothDarkBlue) ;
+}
+
+.input-group-prepend span{
+  width: 50px;
+  background-color: #FFC312;
+  color: black;
+  border:0 !important;
+}
+
+
+.remember{
+  color: white;
+}
+
+.remember input
+{
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.login_btn{
+  color: black;
+  background-color: #FFC312;
+  width: 100px;
+}
+
+.login_btn:hover{
+  color: black;
+  background-color: white;
+}
+
+.links{
+  color: white;
+}
+
+.links a{
+  margin-left: 4px;
+}
+/*      End Of Login Page   */
+
+
+
+
 #hall-container {
   display: flex;
   flex-direction: row;

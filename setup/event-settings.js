@@ -3,6 +3,7 @@ class EventSettings {
     constructor(container, onSubmit) {
         this.container = container;
         this.onSubmit = onSubmit;
+
     }
 
     render(){
@@ -22,7 +23,7 @@ class EventSettings {
     setSettingsBtn(){
         const loadOrNewBtn = document.createElement('button');
         loadOrNewBtn.textContent = 'Create New Event';
-        loadOrNewBtn.className = "btn btn-outline-primary"
+        loadOrNewBtn.className = "btn btn-outline-danger"
         loadOrNewBtn.addEventListener('click', ev => {
             this.onSubmit(this.container);
         })
