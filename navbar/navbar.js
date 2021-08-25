@@ -42,8 +42,8 @@ class Navbar {
         if (url === '/login'){
             const loginPage = new MainPage(this.container, 'login');
             loginPage.render();
-
         }
+
         else if (url==='/homepage'){
             this.container.innerHTML =''
             const homePage = new MainPage(this.container, 'home-page');

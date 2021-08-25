@@ -14,6 +14,11 @@ const setHomeForm = (cardForm, pageType)=> {
     const hourSelect = getSelect(['10:00', '14:30']);
     const submitBtn = getSubmitBtn(pageType);
 
+    submitBtn.addEventListener('click', ()=>{
+        const showPresentation = new ShowPresentation(this.container);
+        showPresentation.render();
+    })
+
     cardForm.appendChild(movieSelect);
     cardForm.appendChild(dateSelector);
     cardForm.appendChild(hourSelect);

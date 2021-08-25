@@ -1,12 +1,14 @@
 const container = document.getElementById('container');
 let hall;
 const body =document.querySelector('body');
+
 const settingApplied = (rows, seats, name, form) => {
     form.remove();
     hall = new Hall(container,rows, seats, name);
     hall.render();
 
 }
+
 
 const startApp = (container) => {
     const navbarContainer = document.createElement('div');
