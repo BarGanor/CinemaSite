@@ -10,6 +10,15 @@ class MainPage {
 
     }
 
+    onSubmit(pageType, searchData){
+      if (pageType === 'login'){
+
+          const user = new User(searchData);
+          const newNavbar = new Navbar()
+      }
+    }
+
+
     getCard() {
         const cardContainerDiv = document.createElement('div');
         cardContainerDiv.className = 'd-flex justify-content-center h-100'
@@ -18,11 +27,8 @@ class MainPage {
         cardDiv.className = 'card';
         cardContainerDiv.appendChild(cardDiv);
 
-        const cardHeaderDiv = this.getHeaderDiv();
-
-
         const cardHeader = this.getHeaderDiv();
-        cardHeaderDiv.appendChild(cardHeader);
+        cardDiv.appendChild(cardHeader);
 
         const cardBodyDiv = this.getCardBody();
         cardDiv.appendChild(cardBodyDiv);
@@ -57,7 +63,7 @@ class MainPage {
             setLoginForm(cardForm, this.pageType);
 
         } else if (this.pageType === 'new-movies') {
-            this.setNewMoviesFormDiv(cardForm);
+            setNewMoviesFormDiv(cardForm, this.pageType);
 
         } else if (this.pageType === 'home-page') {
             setHomeForm(cardForm, this.pageType);
@@ -67,18 +73,5 @@ class MainPage {
         cardBodyDiv.appendChild(cardForm)
         return cardBodyDiv;
     }
-
-    setNewMoviesFormDiv(cardForm) {
-        const genreSelect = getSelect(['Action', 'Comedy']);
-        const submitBtn = getSubmitBtn(this.pageType);
-        cardForm.appendChild(genreSelect);
-        cardForm.appendChild(submitBtn);
-        submitBtn.addEventListener('click', ()=>{
-            const moviePresentation = new MoviePresentation(this.container);
-            moviePresentation.render();
-        })
-    }
-
-
 
 }

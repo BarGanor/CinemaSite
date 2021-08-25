@@ -1,13 +1,3 @@
-body {
-  /*display: flex;*/
-  /*flex-direction: column;*/
-  /*align-items: center;*/
-  /*justify-content: center;*/
-  /*height: 100vh;*/
-  /*font-family: 'Lato', sans-serif;*/
-  /*margin: 0;*/
-}
-
 :root{
   --lightGray: rgba(201, 201, 201, 0.56);
   --navbarBlack: #2f2e2e;
@@ -27,76 +17,11 @@ html,body{
   align-content: center;
 }
 
-.nav-item:hover{
-  cursor: pointer;
-}
 
 #container{
   display: flex;
   flex-direction: column;
 }
-
-/*        Sign In Page      */
-.card{
-  margin-top: 5vw;
-  height: 370px;
-  margin-bottom: auto;
-  width: 400px;
-  background-color: rgba(0,0,0,0.5) !important;
-}
-
-.card-header{
-  color: var(--lightWhite);
-}
-
-.card-footer{
- margin-top: 10vw;
-}
-.navbar{
-  background-color: var(--smoothDarkBlue) ;
-}
-
-.input-group-prepend span{
-  width: 50px;
-  background-color: #FFC312;
-  color: black;
-  border:0 !important;
-}
-
-
-.remember{
-  color: white;
-}
-
-.remember input
-{
-  width: 20px;
-  height: 20px;
-  margin-left: 15px;
-  margin-right: 5px;
-}
-
-.login_btn{
-  color: black;
-  background-color: #FFC312;
-  width: 100px;
-}
-
-.login_btn:hover{
-  color: black;
-  background-color: white;
-}
-
-.links{
-  color: white;
-}
-
-.links a{
-  margin-left: 4px;
-}
-/*      End Of Login Page   */
-
-
 
 
 #hall-container {
@@ -104,153 +29,7 @@ html,body{
   flex-direction: row;
   width: 100%;
   justify-content: center;
-}
-.screen {
-  background-color: #fff;
-  height: 400px;
-  width: 100%;
-  margin-bottom: 10%;
-
-  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
-}
-
-.cinema-seats {
-  display: flex;
-  flex-direction: row;
-}
-.cinema-seats .seat {
-  cursor: pointer;
-}
-.cinema-seats .seat:hover:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 7px;
-}
-.cinema-seats .seat.active:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 7px;
-}
-
-.left .cinema-row {
-  transform: skew(-15deg);
-  margin: 0 6px;
-}
-.left .seat {
-  width: 35px;
-  height: 50px;
-  border-radius: 7px;
-  background: linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #b54041, #f3686a);
-  margin-bottom: 10px;
-  transform: skew(20deg);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-.left .seat:not(:first-child) {
-  margin-top: -32px;
-}
-.left .row-2 {
-  transform: skew(-13deg);
-}
-.left .row-2 .seat {
-  transform: skew(18deg);
-}
-.left .row-3 {
-  transform: skew(-12deg);
-}
-.left .row-3 .seat {
-  transform: skew(16deg);
-}
-.left .row-4 {
-  transform: skew(-11deg);
-}
-.left .row-4 .seat {
-  transform: skew(15deg);
-}
-.left .row-5 {
-  transform: skew(-10deg);
-}
-.left .row-5 .seat {
-  transform: skew(12deg);
-}
-.left .row-6 {
-  transform: skew(-9deg);
-}
-.left .row-6 .seat {
-  transform: skew(10deg);
-}
-.left .row-7 {
-  transform: skew(-7deg);
-}
-.left .row-7 .seat {
-  transform: skew(8deg);
-}
-
-.right {
-  margin-left: 10%;
-}
-.right .cinema-row {
-  transform: skew(7deg);
-  margin: 0 6px;
-}
-.right .seat {
-  width: 35px;
-  height: 50px;
-  border-radius: 7px;
-  background: linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #b54041, #f3686a);
-  margin-bottom: 10px;
-  transform: skew(-8deg);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-
-.right .seat:not(:first-child) {
-  margin-top: -32px;
-}
-
-.right .row-2 {
-  transform: skew(9deg);
-}
-.right .row-2 .seat {
-  transform: skew(-10deg);
-}
-.right .row-3 {
-  transform: skew(10deg);
-}
-.right .row-3 .seat {
-  transform: skew(-12deg);
-}
-.right .row-4 {
-  transform: skew(11deg);
-}
-.right .row-4 .seat {
-  transform: skew(-15deg);
-}
-.right .row-5 {
-  transform: skew(12deg);
-}
-.right .row-5 .seat {
-  transform: skew(-16deg);
-}
-.right .row-6 {
-  transform: skew(13deg);
-}
-.right .row-6 .seat {
-  transform: skew(-18deg);
-}
-.right .row-7 {
-  transform: skew(15deg);
-}
-.right .row-7 .seat {
-  transform: skew(-20deg);
-}
-p.text {
+}p.text {
   margin: 5px 0;
 }
 
@@ -265,21 +44,9 @@ p.text span {
   margin-top: 1vw !important;
 }
 
-.button-holder-central{
-  text-align: center;
-}
 
-img {
-  -webkit-user-drag: none;
-}
 
 img {
   pointer-events: none;
-}
-.movie_card {
-  padding: 0 !important;
-  width: 22rem;
-  margin: 14px;
-  border-radius: 10px;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
+  -webkit-user-drag: none;
 }

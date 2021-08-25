@@ -2,9 +2,9 @@
 .movie_card {
     position: relative;
     display: block;
-    width: 800px;
-    height: 350px;
-    margin: 100px auto;
+    width: 80%;
+    height: 10%;
+    margin: 5vw;
     overflow: hidden;
     border-radius: 10px;
     transition: all 0.4s;
@@ -15,8 +15,8 @@
 }
 .movie_card .info_section {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 50%;
     background-blend-mode: multiply;
     z-index: 2;
     border-radius: 10px;
@@ -152,10 +152,10 @@
 }
 
 #tomb {
-    box-shadow: 0px 0px 150px -45px rgba(19, 160, 134, 0.6);
+    box-shadow:  0 0 15vw -10vw rgba(19, 160, 134, 0.6);
 }
 #tomb:hover {
-    box-shadow: 0px 0px 120px -55px rgba(19, 160, 134, 0.6);
+    box-shadow: 0 0 10vw -5vw rgba(19, 160, 134, 0.6);
 }
 
 .tomb_back {

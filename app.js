@@ -15,7 +15,7 @@ const startApp = (container) => {
     body.insertBefore(navbarContainer, body.firstChild);
 
 
-    const navbar = new Navbar(container,navbarContainer, null, );
+    const navbar = new Navbar(container,navbarContainer, null );
     navbar.render();
 
     const homePage = new MainPage(container, 'home-page');

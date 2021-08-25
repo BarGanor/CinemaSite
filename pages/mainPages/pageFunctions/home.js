@@ -9,7 +9,7 @@ const setHomeHeader =(headerText)=>{
 
 const setHomeForm = (cardForm, pageType)=> {
 
-    const movieSelect = getSelect(['Harry Potter', 'Inception']);
+    const movieSelect = getSelect(['תל אביב', 'גבעתיים', 'באר שבע']);
     const dateSelector =getSelect(getNextWeek());
     const hourSelect = getSelect(['10:00', '14:30']);
     const submitBtn = getSubmitBtn(pageType);
