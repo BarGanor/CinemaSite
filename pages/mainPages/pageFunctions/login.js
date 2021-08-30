@@ -1,78 +1,137 @@
-const getLoginInputField = (inputType)=> {
+class Login extends MainPage{
+    constructor(container) {
+        super(container);
+    }
 
-    const inputItem = document.createElement('div');
-    inputItem.className = 'input-group form-group';
+    render() {
+        const card = this.card;
+        this.container.appendChild(card);
+    }
 
-    const inputField = document.createElement('input');
-    inputField.className = 'form-control';
+    get card(){
+        const card = super.card;
 
-    if (inputType === 'username'){
+        card.firstChild.appendChild(this.headerDiv);
+        card.firstChild.appendChild(this.cardBody);
+
+        return card;
+    }
+
+    get headerDiv(){
+        const headerDiv = document.createElement('div');
+        headerDiv.className = 'card-header';
+
+        const headerText = document.createElement('h3');
+        headerText.textContent = 'Sign In';
+
+        headerDiv.appendChild(headerText);
+        return headerDiv;
+    }
+
+    get cardBody() {
+        const cardBody = super.cardBody;
+        const cardForm = document.createElement('form');
+
+        const userNameInput = this.userNameInput;
+        const passwordInput = this.passwordInput;
+        const rememberMeBox = this.checkBox;
+        const submitBtn = this.submitBtn;
+        const cardFooter = this.cardFooter;
+
+        cardForm.appendChild(userNameInput);
+        cardForm.appendChild(passwordInput);
+        cardForm.appendChild(rememberMeBox);
+        cardForm.appendChild(submitBtn);
+        cardForm.appendChild(cardFooter);
+
+        cardBody.appendChild(cardForm);
+
+        return cardBody;
+    }
+
+    get userNameInput(){
+        const inputItem = document.createElement('div');
+        inputItem.className = 'input-group form-group';
+
+        const inputField = document.createElement('input');
+        inputField.className = 'form-control';
+
         inputField.type = 'text';
         inputField.placeholder = 'User Name';
+
+        inputItem.appendChild(inputField);
+
+        return inputItem;
     }
 
-    else if(inputType === 'password'){
+    get passwordInput(){
+        const inputItem = document.createElement('div');
+        inputItem.className = 'input-group form-group';
+
+        const inputField = document.createElement('input');
+        inputField.className = 'form-control';
+
         inputField.type = 'password';
         inputField.placeholder = 'Password';
+
+        inputItem.appendChild(inputField);
+
+        return inputItem;
     }
-    inputItem.appendChild(inputField);
 
-    return inputItem;
+    get checkBox(){
+        const inputItem = document.createElement('div');
+        inputItem.className = 'row align-items-center remember';
+        inputItem.textContent = 'Remember me';
+
+        const inputField = document.createElement('input');
+        inputField.type = 'checkbox';
+
+
+        inputItem.appendChild(inputField);
+
+        return inputItem;
+    }
+
+    get submitBtn(){
+        const btnDiv = document.createElement('div');
+        const submitBtn = document.createElement('input');
+        submitBtn.type = 'submit';
+
+        btnDiv.className = 'form-group';
+        submitBtn.className= 'btn float-right login_btn';
+        submitBtn.value = 'Login';
+
+        btnDiv.appendChild(submitBtn);
+
+        return btnDiv;
+    }
+
+    get cardFooter (){
+        const footerDiv = document.createElement('div');
+        footerDiv.className= 'card-footer';
+
+        const signUpDiv = document.createElement('div');
+        signUpDiv.className = 'd-flex justify-content-center links';
+        signUpDiv.textContent = 'Don\'t have an account?';
+
+        const signUpLink = document.createElement('a');
+        signUpLink.href = '#';
+        signUpLink.text = 'Sign Up';
+        signUpDiv.appendChild(signUpLink);
+        footerDiv.appendChild(signUpDiv);
+
+        const forgotPwDiv = document.createElement('div');
+        forgotPwDiv.className = 'd-flex justify-content-center';
+
+        const forgotPwLink = document.createElement('a');
+        forgotPwLink.href = '#';
+        forgotPwLink.text = 'Forgot your password?';
+
+        forgotPwDiv.appendChild(forgotPwLink);
+        footerDiv.appendChild(forgotPwDiv);
+
+        return footerDiv;
+    }
 }
 
-const getLoginCheckBox = ()=>{
-    const inputItem = document.createElement('div');
-    inputItem.className = 'row align-items-center remember';
-    inputItem.textContent = 'Remember me';
-
-    const inputField = document.createElement('input');
-    inputField.type = 'checkbox';
-
-
-    inputItem.appendChild(inputField);
-
-    return inputItem;
-}
-
-const getLoginCardFooter = ()=>{
-    const footerDiv = document.createElement('div');
-    footerDiv.className= 'card-footer';
-
-    const signUpDiv = document.createElement('div');
-    signUpDiv.className = 'd-flex justify-content-center links';
-    signUpDiv.textContent = 'Don\'t have an account?';
-
-    const signUpLink = document.createElement('a');
-    signUpLink.href = '#';
-    signUpLink.text = 'Sign Up';
-    signUpDiv.appendChild(signUpLink);
-    footerDiv.appendChild(signUpDiv);
-
-    const forgotPwDiv = document.createElement('div');
-    forgotPwDiv.className = 'd-flex justify-content-center';
-
-    const forgotPwLink = document.createElement('a');
-    forgotPwLink.href = '#';
-    forgotPwLink.text = 'Forgot your password?';
-
-    forgotPwDiv.appendChild(forgotPwLink);
-    footerDiv.appendChild(forgotPwDiv);
-
-    return footerDiv;
-}
-
-const setLoginForm = (cardForm, pageType)=> {
-    const userNameInput = getLoginInputField('username');
-    const passwordInput = getLoginInputField('password');
-    const rememberMeBox = getLoginCheckBox();
-    const submitBtn = getSubmitBtn(pageType);
-    const cardFooter = getLoginCardFooter();
-
-    cardForm.appendChild(userNameInput);
-    cardForm.appendChild(passwordInput);
-    cardForm.appendChild(rememberMeBox);
-    cardForm.appendChild(submitBtn);
-    cardForm.appendChild(cardFooter);
-
-
-}

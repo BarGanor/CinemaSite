@@ -20,7 +20,7 @@ const startApp = (container) => {
     const navbar = new Navbar(container,navbarContainer, null );
     navbar.render();
 
-    const homePage = new MainPage(container, 'home-page');
+    const homePage = new Home(container);
     homePage.render();
 }
 

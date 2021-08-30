@@ -40,20 +40,20 @@ class Navbar {
         this.container.innerHTML =''
 
         if (url === '/login'){
-            const loginPage = new MainPage(this.container, 'login');
+            const loginPage = new Login(this.container)
             loginPage.render();
         }
 
         else if (url==='/homepage'){
             this.container.innerHTML =''
-            const homePage = new MainPage(this.container, 'home-page');
+            const homePage = new Home(this.container);
             homePage.render();
 
         }
 
         else if (url==='/new-movies'){
             this.container.innerHTML =''
-            const newMoviesPage = new MainPage(this.container, 'new-movies');
+            const newMoviesPage = new NewMovies(this.container);
             newMoviesPage.render();
         }
 

@@ -1,13 +1,11 @@
 class MainPage {
-    constructor(container, pageType) {
-        this.pageType = pageType;
+    constructor(container) {
         this.container = container;
     }
 
     render() {
-        const card = this.getCard();
+        const card = this.card;
         this.container.appendChild(card);
-
     }
 
     onSubmit(pageType, searchData){
@@ -19,59 +17,39 @@ class MainPage {
     }
 
 
-    getCard() {
+    get card() {
         const cardContainerDiv = document.createElement('div');
-        cardContainerDiv.className = 'd-flex justify-content-center h-100'
-
         const cardDiv = document.createElement('div');
+
+        cardContainerDiv.className = 'd-flex justify-content-center h-100'
         cardDiv.className = 'card';
+
         cardContainerDiv.appendChild(cardDiv);
-
-        const cardHeader = this.getHeaderDiv();
-        cardDiv.appendChild(cardHeader);
-
-        const cardBodyDiv = this.getCardBody();
-        cardDiv.appendChild(cardBodyDiv);
 
         return cardContainerDiv;
 
     }
 
-    getHeaderDiv() {
-        const headerDiv = document.createElement('div');
-        headerDiv.className = 'card-header';
-
-        const headerText = document.createElement('h3');
-        if (this.pageType === 'login') {
-            headerText.textContent = 'Sign In'
-        } else if (this.pageType === 'new-movies') {
-            headerText.textContent = 'Pick a Genre';
-        } else if (this.pageType === 'home-page') {
-            setHomeHeader(headerText);
-        }
-
-        headerDiv.appendChild(headerText);
-        return headerDiv;
-    }
-
-    getCardBody() {
+    get cardBody() {
         const cardBodyDiv = document.createElement('div');
         cardBodyDiv.className = 'card-body';
-
-        const cardForm = document.createElement('form');
-        if (this.pageType === 'login') {
-            setLoginForm(cardForm, this.pageType);
-
-        } else if (this.pageType === 'new-movies') {
-            setNewMoviesFormDiv(cardForm, this.pageType);
-
-        } else if (this.pageType === 'home-page') {
-            setHomeForm(cardForm, this.pageType);
-
-        }
-
-        cardBodyDiv.appendChild(cardForm)
         return cardBodyDiv;
+    }
+
+    getSelect(options) {
+        const selectDiv = document.createElement('div');
+        selectDiv.className = 'input-group form-group';
+
+        const selectObj = document.createElement('select');
+        selectObj.className = 'form-control';
+        selectDiv.appendChild(selectObj);
+
+        options.forEach((option) => {
+            let optionObj = document.createElement('option');
+            optionObj.text = option;
+            selectObj.appendChild(optionObj);
+        })
+        return selectDiv;
     }
 
 }
