@@ -1,6 +1,6 @@
 .footer-dark {
     padding:50px 0;
-    color:var(--lightWhite);
+    color: var(--lightWhite);
     background-color:var(--smoothDarkBlue);
     display: flex;
     justify-content: center;
