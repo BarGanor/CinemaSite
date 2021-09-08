@@ -13,7 +13,6 @@ class FooterColumn{
 
         const list = document.createElement('ul');
 
-        console.log(this.data)
         this.data.listItems.forEach((listItemData)=>{
             const listItem = document.createElement('li');
             listItem.className = 'link-list-item';

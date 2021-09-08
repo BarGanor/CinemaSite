@@ -46,6 +46,7 @@ class Home extends BasePage{
             showPresentation.render();
         })
 
+        cardForm.action = '/todo';
         cardForm.appendChild(citySelect);
         cardForm.appendChild(dateSelector);
         cardForm.appendChild(hourSelect);

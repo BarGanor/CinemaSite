@@ -29,7 +29,7 @@ class SignUp extends BasePage{
         const submitBtn = this.submitBtn;
 
 
-
+        cardForm.action = '/todo';
         cardForm.appendChild(userName);
         cardForm.appendChild(password);
         cardForm.appendChild(confirmPassword);

@@ -18,6 +18,7 @@ class Footer {
         this.insertAfter(footerDiv, this.container);
     }
 
+
     get footerCols() {
         return [new FooterColumn({
             'header': 'Services',

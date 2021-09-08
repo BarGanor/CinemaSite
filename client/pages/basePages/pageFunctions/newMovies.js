@@ -35,6 +35,7 @@ class NewMovies extends BasePage{
         const genreSelect = super.getSelect(['Action', 'Comedy']);
         const submitBtn = this.submitBtn;
 
+        cardForm.action = '/todo';
         cardForm.appendChild(genreSelect);
         cardForm.appendChild(submitBtn);
         cardBody.appendChild(cardForm);

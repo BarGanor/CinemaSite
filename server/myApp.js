@@ -6,11 +6,11 @@ const port = 8080;
 
 app.use('/', express.static(path.join(__dirname, '../client')))
 
-app.get('/example/b', function (req, res, next) {
+app.get('/eliyahu', function (req, res, next) {
     console.log('the response will be sent by the next function ...')
     next()
 }, function (req, res) {
-    res.send('Hello from B!')
+    res.send('Hey Eli')
 })
 
 app.listen(port, () => {
