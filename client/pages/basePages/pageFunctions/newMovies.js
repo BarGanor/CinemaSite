@@ -1,4 +1,4 @@
-class NewMovies extends MainPage{
+class NewMovies extends BasePage{
     constructor(container) {
         super(container);
     }

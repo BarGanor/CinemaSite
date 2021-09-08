@@ -1,8 +1,12 @@
 :root{
-  --lightGray: rgba(201, 201, 201, 0.56);
+  --lightGray: rgba(165, 165, 165, 0.22);
   --navbarBlack: #2f2e2e;
-  --lightWhite:rgba(255, 255, 255, 0.7);
-  --smoothDarkBlue : rgba(48, 51, 66, 0.38);
+  --lightWhite: rgba(255, 255, 255, 0.83);
+  --smoothDarkBlue : rgba(48, 51, 66, 0.77);
+  --cardBlack : rgba(0,0,0,0.5);
+  --yellowButton :  #FFC312;
+  --brightBlue : #9ac7fa;
+  --coolGray : rgba(255, 255, 255, 0.13)
 }
 html,body{
   background-image: url('https://images.cdn4.stockunlimited.net/preview1300/cinema-background-with-movie-objects_1823382.jpg');
@@ -15,6 +19,7 @@ html,body{
 .container{
   height: 100%;
   align-content: center;
+
 }
 
 

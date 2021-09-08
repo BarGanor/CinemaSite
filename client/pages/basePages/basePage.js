@@ -1,4 +1,4 @@
-class MainPage {
+class BasePage {
     constructor(container) {
         this.container = container;
     }

@@ -1,11 +1,9 @@
 
-
 .card{
     margin-top: 5vw;
-    height: 370px;
-    margin-bottom: auto;
-    width: 400px;
-    background-color: rgba(0,0,0,0.5) !important;
+    height: 100%;
+    width: 30%;
+    background-color: var(--cardBlack);
 }
 
 .card-header{
@@ -13,17 +11,10 @@
 }
 
 .card-footer{
-    margin-top: 10vw;
+    margin-top: 20%;
 }
 .navbar{
     background-color: var(--smoothDarkBlue) ;
-}
-
-.input-group-prepend span{
-    width: 50px;
-    background-color: #FFC312;
-    color: black;
-    border:0 !important;
 }
 
 
@@ -31,17 +22,10 @@
     color: white;
 }
 
-.remember input
-{
-    width: 20px;
-    height: 20px;
-    margin-left: 15px;
-    margin-right: 5px;
-}
 
 .login_btn{
     color: black;
-    background-color: #FFC312;
+    background-color: var(--yellowButton);
     width: 100px;
 }
 

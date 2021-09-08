@@ -1,4 +1,4 @@
-class Login extends MainPage{
+class Login extends BasePage{
     constructor(container) {
         super(container);
     }
@@ -114,6 +114,12 @@ class Login extends MainPage{
         const signUpDiv = document.createElement('div');
         signUpDiv.className = 'd-flex justify-content-center links';
         signUpDiv.textContent = 'Don\'t have an account?';
+
+        signUpDiv.addEventListener('click', ()=>{
+            this.container.innerHTML =''
+            const signUpPage = new SignUp(this.container);
+            signUpPage.render();
+        })
 
         const signUpLink = document.createElement('a');
         signUpLink.href = '#';

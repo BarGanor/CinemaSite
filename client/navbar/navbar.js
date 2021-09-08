@@ -17,7 +17,8 @@ class Navbar {
         navbar.appendChild(navbarList);
 
         const tabs = [new NavbarItem('Home Page', '/homepage',()=>this.setChosenPage('/homepage')),
-                    new NavbarItem('New Movies', '/new-movies', ()=> this.setChosenPage('/new-movies'))];
+                    new NavbarItem('New Movies', '/new-movies', ()=> this.setChosenPage('/new-movies')),
+                    ];
 
         tabs.forEach((tab)=> {
             navbarList.appendChild(tab.render());
@@ -55,6 +56,12 @@ class Navbar {
             this.container.innerHTML =''
             const newMoviesPage = new NewMovies(this.container);
             newMoviesPage.render();
+        }
+
+        else if (url==='/about'){
+            this.container.innerHTML =''
+            const aboutPage = new About(this.container);
+            aboutPage.render();
         }
 
     }

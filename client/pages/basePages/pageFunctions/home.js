@@ -1,5 +1,5 @@
 
-class Home extends MainPage{
+class Home extends BasePage{
     constructor(container) {
         super(container);
         this.container = container;

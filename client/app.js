@@ -11,17 +11,20 @@ const settingApplied = (rows, seats, name, form) => {
 
 
 const startApp = (container) => {
-    const navbarContainer = document.createElement('div');
-    navbarContainer.className= 'navbar-container';
+    const header = document.createElement('header');
+    header.className= 'navbar-container';
 
-    body.insertBefore(navbarContainer, body.firstChild);
+    body.insertBefore(header, body.firstChild);
 
 
-    const navbar = new Navbar(container,navbarContainer, null );
+    const navbar = new Navbar(container,header, null );
     navbar.render();
 
     const homePage = new Home(container);
     homePage.render();
+
+    const footer = new Footer(container);
+    footer.render();
 }
 
 
