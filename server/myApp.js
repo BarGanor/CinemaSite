@@ -12,7 +12,7 @@ const port = 8080;
 
 
 app.use('/', express.static(path.join(__dirname, '../client')))
-
+console.log(express.static(path.join(__dirname, '../client')))
 
 // get customer by name
 app.post("/newMovies/:genre", CRUD_operations.getNewMovies);
