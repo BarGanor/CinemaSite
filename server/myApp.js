@@ -14,10 +14,7 @@ const port = 8080;
 app.use('/', express.static(path.join(__dirname, '../client')))
 console.log(express.static(path.join(__dirname, '../client')))
 
-// get customer by name
 app.post("/newMovies/:genre", CRUD_operations.getNewMovies);
-
-app.get('/cities', CRUD_operations.getDistinctCities)
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

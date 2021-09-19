@@ -15,19 +15,6 @@ const getNewMovies = function(req, res) {
     });
 };
 
-const getDistinctCities = function(req, res) {
-    sql.query("SELECT DISTINCT city FROM Cinemas", (err, mysqlres) => {
-
-        if (err) {
-            console.log("error: ", err);
-            res.status(400).send({message: "error in getting distinct cities: " +
-                    err});
-            return;
-        }
-        console.log("got distinct city...");
-        res.send(mysqlres);
-    });
-};
-module.exports = {getDistinctCities : getDistinctCities, getNewMovies:getNewMovies};
+module.exports = {getNewMovies:getNewMovies};
 
 
