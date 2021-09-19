@@ -1,19 +1,32 @@
 class MoviePresentation {
-    constructor(container) {
+    constructor(container, data) {
         this.container = container;
+        this.data = data;
     }
 
     render(){
+        const movieList =[];
+        this.data.forEach((movie)=>{
+            movieList.push(new MovieCard(this.container, '', movie.title, movie.year + ', ' +movie.director, movie.genre, movie.description))
+        })
+
         this.container.innerHTML = '';
 
         const pageContainer = document.createElement('div');
         pageContainer.className = 'movie-presentation';
 
-        const movieList = [new MovieCard(this.container, "https://movieplayer.net-cdn.it/t/images/2017/12/20/bright_jpg_191x283_crop_q85.jpg", 'Bright', '2017, David Ayer', 'Action, Crime, Fantasy', 'description'),
-                         new MovieCard(this.container, "https://mr.comingsoon.it/imgdb/locandine/235x336/53750.jpg", 'Tomb Raider', '2018, Roar Uthaug', 'Action, Fantasy', 'description')]
-        movieList.forEach((movie)=>{
-            movie.setMovieCard(this.container);
-        })
+        if (movieList.length > 0){
+            movieList.forEach((movie)=>{
+                movie.setMovieCard(this.container);
+            })
+        }
+        else{
+            const no_movies  = document.createElement('h1');
+            no_movies.textContent = 'No Movies Found';
+
+            pageContainer.appendChild(no_movies);
+            this.container.appendChild(pageContainer);
+        }
     }
 }
 
