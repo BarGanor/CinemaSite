@@ -1,0 +1,73 @@
+
+.movie_card {
+    position: relative;
+    flex-direction: row;
+    width: 80%;
+    height: 10%;
+    margin: 5vw;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: all 0.4s;
+}
+.movie_card:hover {
+    transform: scale(1.02);
+    transition: all 0.4s;
+}
+.movie_card .info_section {
+    position: relative;
+    width: 80%;
+    height: 50%;
+    background-blend-mode: multiply;
+    z-index: 2;
+    border-radius: 10px;
+}
+.movie_card .info_section .movie_header {
+    position: relative;
+    padding: 25px;
+    height: 40%;
+}
+.movie_card .info_section .movie_header h1 {
+    color: white;
+    font-weight: 400;
+}
+.movie_card .info_section .movie_header h4 {
+    color: var(--brightBlue);
+    font-weight: 400;
+}
+.movie_card .info_section .movie_header .minutes {
+    display: inline-block;
+    margin-top: 10px;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--lightGray);
+}
+.movie_card .info_section .movie_header .type {
+    display: flex;
+    color: var(--lightWhite);
+    align-items: end;
+}
+
+.movie_card .info_section .movie_desc {
+    padding: 1vw;
+    height: 50%;
+}
+.movie_card .info_section .movie_desc .text {
+    color: var(--lightWhite);
+}
+
+
+@media screen and (min-width: 768px) {
+    .movie_header {
+        width: 60%;
+    }
+
+    .movie_desc {
+        width: 50%;
+    }
+
+    .info_section {
+        background: linear-gradient(to right, #0d0d0c 50%, transparent 100%);
+    }
+
+}
