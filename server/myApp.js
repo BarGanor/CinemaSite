@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const path = require("path");
 const sql = require('./db-files/db.js');
-const CRUD_operations = require("./CRUD_functions/CRUD_functions.js");
+const CRUD_operations = require("./CRUD-functions/CRUD-functions.js");
 
 const app = express();
 app.use(bodyParser.json());
