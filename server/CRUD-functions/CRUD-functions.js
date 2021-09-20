@@ -36,7 +36,7 @@ const newShows = function (req, res) {
     const date = req.body.date;
     const time = req.body.time;
     const dt_start = date + ' ' + time;
-    sql.query("select * from Shows where city=? and dt_start=?", [city, dt_start]  , (err, mysqlres) => {
+    sql.query("SELECT s.dt_start, title, m.year, m.date_published, m.genre, m.actors, m.director, m.description FROM Shows as s join movies as m on s.movie_id=m.imdb_title_id where s.city = ? and s.dt_start=?", [city, dt_start]  , (err, mysqlres) => {
         if (err) {
             console.log("error: ", err);
             res.status(400).send({message: "error in getting shows: " +
@@ -44,6 +44,7 @@ const newShows = function (req, res) {
             return;
         }
         console.log("got shows..");
+        console.log(mysqlres);
         res.send(mysqlres);
     });
 }
