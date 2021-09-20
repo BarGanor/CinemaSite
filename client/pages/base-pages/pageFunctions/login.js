@@ -33,20 +33,17 @@ class Login extends BasePage{
         const cardBody = super.cardBody;
         const cardForm = document.createElement('form');
 
-        const userNameInput = this.userNameInput;
+        const emailInput = this.emailInput;
         const passwordInput = this.passwordInput;
         const rememberMeBox = this.checkBox;
         const submitBtn = this.submitBtn;
         const cardFooter = this.cardFooter;
 
-        cardForm.on('submit', async (url='', data={customerName:'cinema-city'})=>{
-            await fetch('/login', {method:'POST', headers:{'Content-Type' : 'application/json'},
-            body:JSON.stringify(data)});
-            return response.json();
-        });
+        cardForm.onsubmit = ()=>{
+            this.postData('/validation', {email:emailInput.firstChild.value, password:passwordInput.firstChild.value}).then(this.successCallback)
+        }
 
-
-        cardForm.appendChild(userNameInput);
+        cardForm.appendChild(emailInput);
         cardForm.appendChild(passwordInput);
         cardForm.appendChild(rememberMeBox);
         cardForm.appendChild(submitBtn);
@@ -57,19 +54,44 @@ class Login extends BasePage{
         return cardBody;
     }
 
-    get userNameInput(){
+    get emailInput(){
         const inputItem = document.createElement('div');
         inputItem.className = 'input-group form-group';
 
         const inputField = document.createElement('input');
         inputField.className = 'form-control';
-        inputField.name = 'user-name';
-        inputField.type = 'text';
-        inputField.placeholder = 'User Name';
+        inputField.name = 'email';
+        inputField.type = 'email';
+        inputField.placeholder = 'Email';
 
         inputItem.appendChild(inputField);
 
         return inputItem;
+    }
+
+    // Example POST method implementation:
+    async postData(url, data) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+    successCallback(result) {
+        if (result.length===1) {
+            const user = new User(result[0])
+
+            const navbar = new Navbar(document.getElementById('container'), document.querySelector('header'), user);
+            navbar.render();
+
+        }
+
     }
 
     get passwordInput(){

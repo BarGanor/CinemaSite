@@ -33,7 +33,7 @@ class NewMovies extends BasePage{
         const cardBody = super.cardBody;
         const cardForm = document.createElement('form');
 
-        const genreSelect = super.getSelect(['Crime', 'Comedy']);
+        const genreSelect = super.getSelect(['Romance', 'Biography', ' Crime', ' Drama', 'Drama', ' History', 'Adventure', ' Fantasy', ' Romance', 'History', ' War', 'Crime', ' Mystery', ' Horror', 'Western', 'Fantasy', 'Comedy', 'Horror', 'Family', ' Adventure', ' Family', 'Action', ' Sci-Fi', ' Comedy', ' Western', 'Mystery', ' Thriller', ' Sport', 'Sci-Fi', 'Animation', ' Musical', ' Action', ' Music', 'Thriller', ' Film-Noir', 'Musical', 'Music', ' Biography', 'War', 'Film-Noir', ' Animation', 'Sport', 'Adult', 'Documentary', ' Reality-TV', ' News']);
         genreSelect.firstChild.name = 'genre';
 
         const submitBtn = this.submitBtn;
@@ -59,6 +59,8 @@ class NewMovies extends BasePage{
         submitBtn.type = 'submit';
         submitBtn.className = 'btn btn-primary';
         submitBtn.textContent = 'Submit'
+        submitBtn.preventDefault;
+
 
         btnDiv.appendChild(submitBtn);
 

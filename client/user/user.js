@@ -1,20 +1,17 @@
 class User {
-    constructor(searchData) {
-        this.searchData = searchData;
+    constructor(user_data) {
+        this.data = user_data;
     }
 
-    getUserData(){
-        if (this.validate()){
-            return this.getUserInfo();
-        }
+    get name(){
+        return this.data.name;
     }
 
-    getUserInfo(){
-        return {name: this.searchData['name']};
-
+    get email(){
+        return this.data.email;
     }
 
-    validate(){
-        return true
+    get birthdate(){
+        return this.data.birthdate;
     }
 }

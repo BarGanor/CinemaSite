@@ -8,8 +8,10 @@ class Navbar {
     }
 
     render() {
+        this.navbarContainer.innerHTML = '';
         const navbar = document.createElement('nav');
         navbar.className = "navbar navbar-expand navbar-dark navbar-custom-bg";
+        navbar.id = 'navbarSupportedContent';
 
         const navbarList = document.createElement('ul');
         navbarList.className = 'navbar-nav mr-auto';
@@ -29,9 +31,10 @@ class Navbar {
             this.renderGuestNavbar(navbarList);
         }
 
-        else if (this.userObj === 'user'){
+        else if (this.userObj instanceof User){
             this.renderUser(navbarList);
         }
+
 
         this.navbarContainer.appendChild(navbar);
 
@@ -72,7 +75,8 @@ class Navbar {
     }
 
     renderUser(list) {
-        const forUser = new NavbarItem('For ' + String(this.userObj.name), '#', 'dropdown')
+        const forUser = new NavbarDropdownItem('For ' + String(this.userObj.name), '#', ['Order History', 'Coupons'])
+        list.appendChild(forUser.render());
     }
 
 

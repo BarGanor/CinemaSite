@@ -16,6 +16,9 @@ console.log(express.static(path.join(__dirname, '../client')))
 
 app.post("/newMovies/:genre", CRUD_operations.getNewMovies);
 
+app.post("/validation", CRUD_operations.validateUser);
+app.post("/newShows", CRUD_operations.newShows);
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 
