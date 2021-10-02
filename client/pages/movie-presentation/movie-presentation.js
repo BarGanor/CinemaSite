@@ -71,6 +71,12 @@ class MovieCard{
         movieDescription.className = 'text';
         movieDescription.textContent = this.description;
 
+        const orderBtn = document.createElement('button');
+        orderBtn.className = 'order-button';
+        orderBtn.addEventListener('click', ()=>{
+
+        })
+
         movieCard.appendChild(infoSection);
         infoSection.appendChild(movieHeader);
         infoSection.appendChild(movieDesc);

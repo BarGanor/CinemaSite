@@ -18,6 +18,14 @@ class FooterColumn{
             listItem.className = 'link-list-item';
             listItem.textContent = listItemData.text;
 
+            if (listItemData.text === 'Contact'){
+                listItem.addEventListener('click', ()=>{
+                    const contact = new ContactUs()
+                    contact.render();
+                })
+            }
+
+
 
             const link = document.createElement('a');
             link.href = listItemData.url;

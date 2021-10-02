@@ -75,7 +75,7 @@ class Navbar {
     }
 
     renderUser(list) {
-        const forUser = new NavbarDropdownItem('For ' + String(this.userObj.name), '#', ['Order History', 'Coupons'])
+        const forUser = new NavbarDropdownItem(String(this.userObj.name) +'\'s orders', '#', ['Order History', 'Coupons'])
         list.appendChild(forUser.render());
     }
 

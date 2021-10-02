@@ -80,3 +80,4 @@ class NewEventForm {
         return myInputField;
     }
 }
+

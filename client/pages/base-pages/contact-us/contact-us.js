@@ -1,10 +1,12 @@
 class ContactUs {
-    constructor(container) {
-        this.container = container;
+    constructor() {
+        this.container = document.getElementById('container');
     }
 
     render(){
-
+        this.container.innerHTML = '';
+        this.container.appendChild(this.sectionHeading);
+        this.container.appendChild(this.sectionDescription);
     }
 
     get sectionHeading(){
@@ -33,8 +35,8 @@ class ContactUs {
         return {
             'grid-rows': [
                 {'grid-columns': [{'name': 'name', 'text': 'Your Name'}, {'name': 'email', 'text': 'Your Email'}]}
-                ,{'grid-columns': [{'name': 'subject', 'text': 'Subject'}]}],
-                [{'grid-columns': [{'name': 'message', 'text': 'Your Message'}]}]
+                ,{'grid-columns': [{'name': 'subject', 'text': 'Subject'}]},
+                {'grid-columns': [{'name': 'message', 'text': 'Your Message'}]}]
         };
     }
 
@@ -43,6 +45,8 @@ class ContactUs {
         form.id = 'contact-form';
         form.name= 'contact-form';
         form.action = '/todo';
+
+        form.appendChild()
 
 
 

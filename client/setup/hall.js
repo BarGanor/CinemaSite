@@ -11,17 +11,6 @@ class Hall{
         this.setEventDisplay();
     }
 
-    changeStyleSheets(){
-        $('.bootstrap').remove()
-        $('.entry-style').remove()
-
-        const theatreStyle = document.createElement('link')
-        theatreStyle.href = 'test-style.css'
-        theatreStyle.rel = 'stylesheet'
-        theatreStyle.className = 'theatre-style'
-
-        document.getElementsByTagName('head')[0].appendChild(theatreStyle)
-    }
 
     setEventDisplay(){
         // const showCaseDiv = this.getShowCase();
@@ -101,8 +90,9 @@ class Hall{
     }
 
     setSeatListener(){
-        $('.cinema-seats .seat').on('click', function() {
-            $(this).toggleClass('active');
-        });
+        // $('.cinema-seats .seat').on('click', function() {
+        //     $(this).toggleClass('active');
+        // });
     }
 }
+

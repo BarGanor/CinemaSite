@@ -2,3 +2,7 @@
 .nav-item:hover{
     cursor: pointer;
 }
+
+#my-orders-btn{
+    align-items: flex-end;
+}
