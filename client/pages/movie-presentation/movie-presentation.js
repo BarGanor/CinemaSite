@@ -6,9 +6,8 @@ class MoviePresentation {
 
     render(){
         const movieList =[];
-        console.log(this.data)
         this.data.forEach((movie)=>{
-            movieList.push(new MovieCard(this.container, '', movie.title, movie.year + ', ' +movie.director, movie.genre, movie.description))
+            movieList.push(new MovieCard(this.container, movie.movie_id,'', movie.title, movie.year + ', ' +movie.director, movie.genre, movie.description, movie.dt_start, movie.city, movie.cinema_name))
         })
         this.container.innerHTML = '';
 
@@ -31,13 +30,17 @@ class MoviePresentation {
 }
 
 class MovieCard{
-    constructor(container, srcLink, movieName, yearAndDirector,  genres, description) {
+    constructor(container,movie_id, srcLink, movieName, yearAndDirector,  genres, description, dt_start, city, cinema_name) {
         this.container = container;
+        this.movieId = movie_id;
         this.srcLink = srcLink;
         this.movieName = movieName;
         this.yearAndDirector = yearAndDirector;
         this.genres = genres;
         this.description = description;
+        this.dt_start = dt_start;
+        this.city = city;
+        this.cinema_name = cinema_name;
     }
 
     setMovieCard(){
@@ -73,8 +76,7 @@ class MovieCard{
 
         const orderBtn = this.orderBtn;
         orderBtn.addEventListener('click', ()=>{
-            const hall = new Hall(this.container, 7, 7);
-            hall.render();
+            this.postData('/showHall', {'movie_id':this.movieId, 'dt_start':this.dt_start, 'city':this.city, 'cinema_name':this.cinema_name}).then(this.successCallback);
         })
 
         movieCard.appendChild(infoSection);
@@ -106,4 +108,22 @@ class MovieCard{
 
         return btnDiv;
     }
+
+    async postData(url, data) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+    successCallback(result) {
+        console.log(result)
+
+    }
+
 }

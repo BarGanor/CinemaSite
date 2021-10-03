@@ -6,3 +6,8 @@
 #my-orders-btn{
     align-items: flex-end;
 }
+
+.user{
+    display: flex;
+    align-content: end;
+}

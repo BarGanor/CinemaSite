@@ -32,7 +32,7 @@ class Navbar {
         }
 
         else if (this.userObj instanceof User){
-            this.renderUser(navbarList);
+            this.renderUser(navbar);
         }
 
 
@@ -74,9 +74,19 @@ class Navbar {
         list.appendChild(loginNav.render());
     }
 
-    renderUser(list) {
-        const forUser = new NavbarDropdownItem(String(this.userObj.name) +'\'s orders', '#', ['Order History', 'Coupons'])
-        list.appendChild(forUser.render());
+    renderUser(navbar) {
+        const userNav = document.createElement('ul');
+        userNav.className = 'navbar-nav mr-auto user';
+
+        const shopping_cart = new UserNavbarItem('Shopping Cart', '#cart')
+        const forUser = new UserNavbarItem(String(this.userObj.name) +'\'s orders', '#')
+        const logout = new UserNavbarItem('logout', '#logout')
+
+        userNav.appendChild(shopping_cart.render());
+        userNav.appendChild(forUser.render());
+        userNav.appendChild(logout.render());
+
+        navbar.appendChild(userNav);
     }
 
 

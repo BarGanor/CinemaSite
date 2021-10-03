@@ -18,6 +18,9 @@ app.post("/newMovies/:genre", CRUD_operations.getNewMovies);
 
 app.post("/validation", CRUD_operations.validateUser);
 app.post("/newShows", CRUD_operations.newShows);
+app.post("/newUser", CRUD_operations.newUser);
+app.post("/showHall", CRUD_operations.showHall);
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

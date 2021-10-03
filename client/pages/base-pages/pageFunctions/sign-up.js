@@ -31,8 +31,38 @@ class SignUp extends BasePage{
         const submitBtn = this.submitBtn;
 
 
-        cardForm.addEventListener('submit',()=>{
-            this.postData('/newUser', {username:userName.firstChild.value, email:email.firstChild.value, password:password.firstChild.value}).then(this.successCallback);
+        cardForm.addEventListener('submit',(e)=>{
+            e.preventDefault();
+
+            if (this.validPassword() && this.validateEmail()){
+                this.postData('/newUser', {username:userName.firstChild.value, email:email.firstChild.value, password:password.firstChild.value}).then(this.successCallback);
+            }
+
+            else if(!this.validPassword()){
+                document.getElementById('confirm_password').setCustomValidity("Passwords Don't Match")
+            }
+
+            else if(!this.validateEmail()){
+                document.getElementById('email_input').setCustomValidity("Email must be of format: example@site.com")
+            }
+
+
+
+            // const validPassword = this.validPassword();
+            // const validEmail = this.validateEmail();
+            //
+            //
+            // if (validPassword && validEmail){
+            //     this.container.innerHTML = '';
+            //     const loginPage = new Login(this.container);
+            //     loginPage.render();
+            // }
+
+            // else{
+            //     console.log(userName);
+            //     this.postData('/newUser', {username:userName.firstChild.value, email:email.firstChild.value, password:password.firstChild.value}).then(this.successCallback);
+            //
+            // }
         })
 
         cardForm.appendChild(userName);
@@ -139,7 +169,6 @@ class SignUp extends BasePage{
     validPassword() {
         let password = document.getElementById('password');
         let confirmPassword = document.getElementById('confirm_password');
-        console.log(password.value, confirmPassword.value);
         return password.value === confirmPassword.value;
     }
 
@@ -152,25 +181,6 @@ class SignUp extends BasePage{
         btnDiv.className = 'form-group';
         submitBtn.className= 'btn float-right login_btn';
         submitBtn.value = 'Sign Up';
-
-        submitBtn.addEventListener('click', ()=>{
-            const validPassword = this.validPassword();
-            const validEmail = this.validateEmail();
-
-            if (validPassword && validEmail){
-                this.container.innerHTML = '';
-                const loginPage = new Login(this.container);
-                loginPage.render();
-            }
-            else if(!validPassword){
-                document.getElementById('confirm_password').setCustomValidity("Passwords Don't Match")
-            }
-
-            else if(!validEmail){
-                document.getElementById('email_input').setCustomValidity("Email must be of format: example@site.com")
-            }
-
-        })
 
         btnDiv.appendChild(submitBtn);
 
@@ -192,13 +202,17 @@ class SignUp extends BasePage{
     }
 
     successCallback(result) {
-        if (result.length===1) {
-            const user = new User(result[0])
 
-            const navbar = new Navbar(document.getElementById('container'), document.querySelector('header'), user);
-            navbar.render();
-
+        if (result.affectedRows === 1){
+            const home = new Home(this.container);
+            home.render();
         }
+
+        else{
+            console.log(result)
+            document.getElementById('email_input').setCustomValidity("An account with this E-mail already exists")
+        }
+
 
     }
 }

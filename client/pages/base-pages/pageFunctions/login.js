@@ -91,6 +91,9 @@ class Login extends BasePage{
             const navbar = new Navbar(document.getElementById('container'), document.querySelector('header'), user);
             navbar.render();
 
+            const homePage = new Home();
+            homePage.render();
+
         }
 
     }
