@@ -39,9 +39,10 @@ class Login extends BasePage{
         const submitBtn = this.submitBtn;
         const cardFooter = this.cardFooter;
 
-        cardForm.onsubmit = ()=>{
+        cardForm.addEventListener('submit', (e)=>{
+            e.preventDefault()
             this.postData('/validation', {email:emailInput.firstChild.value, password:passwordInput.firstChild.value}).then(this.successCallback)
-        }
+        });
 
         cardForm.appendChild(emailInput);
         cardForm.appendChild(passwordInput);

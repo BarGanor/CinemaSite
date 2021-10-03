@@ -40,9 +40,10 @@ class Home extends BasePage{
         const hourSelect = super.getSelect(this.hours);
         const submitBtn = this.submitBtn;
 
-        cardForm.onsubmit = ()=>{
-            this.postData('/newShows', {city:citySelect.firstChild.value, date:dateSelector.firstChild.value, time:hourSelect.firstChild.value}).then(this.successCallback)
-        }
+        cardForm.addEventListener('submit', (e)=>{
+            e.preventDefault()
+            this.postData('/newShows', {city:citySelect.firstChild.value, date:dateSelector.firstChild.value, time:hourSelect.firstChild.value}).then(this.successCallback);
+        })
 
         cardForm.appendChild(citySelect);
         cardForm.appendChild(dateSelector);

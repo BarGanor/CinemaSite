@@ -39,9 +39,10 @@ class NewMovies extends BasePage{
         const submitBtn = this.submitBtn;
 
 
-        cardForm.onsubmit = ()=>{
+        cardForm.addEventListener('submit', (e)=>{
+            e.preventDefault()
             this.postData('/newMovies/'+genreSelect.firstChild.value).then(this.successCallback);
-        }
+        });
 
 
         cardForm.appendChild(genreSelect);
