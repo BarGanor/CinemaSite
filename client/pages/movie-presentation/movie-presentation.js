@@ -6,10 +6,10 @@ class MoviePresentation {
 
     render(){
         const movieList =[];
+        console.log(this.data)
         this.data.forEach((movie)=>{
             movieList.push(new MovieCard(this.container, '', movie.title, movie.year + ', ' +movie.director, movie.genre, movie.description))
         })
-
         this.container.innerHTML = '';
 
         const pageContainer = document.createElement('div');
@@ -71,23 +71,39 @@ class MovieCard{
         movieDescription.className = 'text';
         movieDescription.textContent = this.description;
 
-        const orderBtn = document.createElement('button');
-        orderBtn.className = 'order-button';
+        const orderBtn = this.orderBtn;
         orderBtn.addEventListener('click', ()=>{
-
+            const hall = new Hall(this.container, 7, 7);
+            hall.render();
         })
 
         movieCard.appendChild(infoSection);
+        movieCard.appendChild(orderBtn);
         infoSection.appendChild(movieHeader);
         infoSection.appendChild(movieDesc);
-
         movieHeader.appendChild(movieImg);
         movieHeader.appendChild(movieName);
         movieHeader.appendChild(yearAndDirector);
         movieHeader.appendChild(genres);
 
+
         movieDesc.appendChild(movieDescription);
 
         this.container.appendChild(movieCard);
+    }
+
+    get orderBtn(){
+        const btnDiv = document.createElement('div');
+        btnDiv.className = 'button-holder-central';
+        const submitBtn = document.createElement('input');
+
+        btnDiv.className = 'button-holder-central';
+        submitBtn.type = 'submit';
+        submitBtn.className = 'btn btn-primary';
+        submitBtn.textContent = 'Order';
+
+        btnDiv.appendChild(submitBtn);
+
+        return btnDiv;
     }
 }

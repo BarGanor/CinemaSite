@@ -1,13 +1,39 @@
-
 .screen {
     background-color: #fff;
     height: 400px;
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;
     margin-bottom: 10%;
 
     box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
 }
+.showcase-na::marker{
+    color: #761818;
+}
 
+.showcase-occupied::marker{
+    color: rgba(255, 255, 255, 0.6);
+
+}
+
+.showcase-selected::marker{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+
+.showcase{
+    color: var(--lightWhite);
+    background-color: var(--navbarBlack);
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+
+}
+#hall-container{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20%;
+}
 .cinema-seats {
     display: flex;
     flex-direction: row;

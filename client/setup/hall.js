@@ -1,21 +1,20 @@
 class Hall{
 
-    constructor(container, rows, seats,name) {
+    constructor(container, rows, seats) {
         this.container = container;
         this.rows = rows;
         this.seats = seats;
-        this.name = name;
     }
 
     render(){
+        this.container.innerHTML = '';
         this.setEventDisplay();
     }
 
 
     setEventDisplay(){
-        // const showCaseDiv = this.getShowCase();
-        // this.container.appendChild(showCaseDiv);
-        // this.changeStyleSheets()
+        const showCaseDiv = this.getShowCase();
+        this.container.appendChild(showCaseDiv);
         this.writeRows(this.rows,this.seats);
 
     }
@@ -29,7 +28,7 @@ class Hall{
         const seatSmall = document.createElement('small');
 
         seatSmall.textContent = 'N/A'
-        seat.className = 'seat';
+        elemOne.className = 'showcase-na';
         elemOne.appendChild(seat);
         elemOne.appendChild(seatSmall);
 
@@ -38,7 +37,7 @@ class Hall{
         const seatSelectSmall = document.createElement('small');
 
         seatSelectSmall.textContent = 'Selected'
-        seatSelected.className = 'seat selected show';
+        elemTwo.className = 'showcase-selected';
         elemTwo.appendChild(seatSelected);
         elemTwo.appendChild(seatSelectSmall);
 
@@ -47,7 +46,7 @@ class Hall{
         const seatOccupiedSmall = document.createElement('small');
 
         seatOccupiedSmall.textContent = 'Occupied';
-        seatOccupied.className = 'seat occupied';
+        elemThree.className = 'showcase-occupied';
         elemThree.appendChild(seatOccupied);
         elemThree.appendChild(seatOccupiedSmall);
 
@@ -90,9 +89,9 @@ class Hall{
     }
 
     setSeatListener(){
-        // $('.cinema-seats .seat').on('click', function() {
-        //     $(this).toggleClass('active');
-        // });
+        $('.cinema-seats .seat').on('click', function() {
+            $(this).toggleClass('active');
+        });
     }
 }
 

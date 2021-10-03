@@ -27,16 +27,19 @@ class SignUp extends BasePage{
         this.configPasswordInput(confirmPassword);
 
         const email = this.emailInput;
+        const birthdate = this.birthdateInput;
         const submitBtn = this.submitBtn;
 
 
-        cardForm.action = 'http://localhost:8080/newUser';
-        cardForm.method = 'POST';
+        cardForm.addEventListener('submit',()=>{
+            this.postData('/newUser', {username:userName.firstChild.value, email:email.firstChild.value, password:password.firstChild.value}).then(this.successCallback);
+        })
 
         cardForm.appendChild(userName);
         cardForm.appendChild(password);
         cardForm.appendChild(confirmPassword);
         cardForm.appendChild(email);
+        cardForm.appendChild(birthdate);
         cardForm.appendChild(submitBtn);
 
         cardBody.appendChild(cardForm);
@@ -65,6 +68,21 @@ class SignUp extends BasePage{
 
         inputField.type = 'text';
         inputField.placeholder = 'Enter User Name';
+
+        inputItem.appendChild(inputField);
+
+        return inputItem;
+    }
+
+    get birthdateInput(){
+        const inputItem = document.createElement('div');
+        inputItem.className = 'input-group form-group';
+
+        const inputField = document.createElement('input');
+        inputField.className = 'form-control';
+
+        inputField.type = 'text';
+        inputField.placeholder = 'Enter Birthdate . Example: 1996-08-18';
 
         inputItem.appendChild(inputField);
 
@@ -157,5 +175,30 @@ class SignUp extends BasePage{
         btnDiv.appendChild(submitBtn);
 
         return btnDiv;
+    }
+
+    // Example POST method implementation:
+    async postData(url, data) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+
+    successCallback(result) {
+        if (result.length===1) {
+            const user = new User(result[0])
+
+            const navbar = new Navbar(document.getElementById('container'), document.querySelector('header'), user);
+            navbar.render();
+
+        }
+
     }
 }
