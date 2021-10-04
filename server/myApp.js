@@ -14,8 +14,15 @@ const port = 8080;
 app.use('/', express.static(path.join(__dirname, '../client')))
 console.log(express.static(path.join(__dirname, '../client')))
 
-app.post("/newMovies/:genre", CRUD_operations.getNewMovies);
 
+
+
+// app.get ('/', (request, response) => {
+//     console.log ('request.session')
+//     response.render ('pages/index.ejs', {test: 'salut'})
+// })
+app.post("/newMovies/:genre", CRUD_operations.getNewMovies);
+app.post("/insertApplication", CRUD_operations.createNewApplication)
 app.post("/validation", CRUD_operations.validateUser);
 app.post("/newShows", CRUD_operations.newShows);
 app.post("/newUser", CRUD_operations.newUser);

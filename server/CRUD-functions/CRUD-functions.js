@@ -103,6 +103,35 @@ const addToCart = function (req,res){
 
 };
 
-module.exports = {getNewMovies:getNewMovies, validateUser:validateUser, newShows:newShows, newUser:newUser, showHall:showHall, addToCart:addToCart};
+
+
+
+const createNewApplication = function(req,res){
+// Validate request
+    if (!req.body) {
+        res.status(400).send({
+            message: "Content can not be empty!"
+        });
+        return;
+    }
+    const newApplication = {
+        "name": req.body.name,
+        "email": req.body.email,
+        "country": req.body.country,
+        "subject": req.body.subject
+    };
+    sql.query("INSERT INTO applications VALUES (?,?,?,?)", [newApplication.name, newApplication.email, newApplication.country, newApplication.subject], (err, mysqlres) => {
+        if (err) {
+            console.log("error: ", err);
+            res.status(400).send({message: "error in creating customer: " + err});
+            return;
+        }
+        console.log("created application: ", { id: mysqlres.insertId, ...newApplication });
+        return;
+    });
+};
+
+
+module.exports = {getNewMovies:getNewMovies, validateUser:validateUser, newShows:newShows, newUser:newUser, showHall:showHall, addToCart:addToCart, createNewApplication};
 
 

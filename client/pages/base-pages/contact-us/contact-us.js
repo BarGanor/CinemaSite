@@ -307,7 +307,7 @@ class ContactUs {
             '    <label for="subject">Subject</label>\n' +
             '    <textarea id="subject" name="subject" placeholder="Write something.." style="height:70px"></textarea>\n' +
             '\n' +
-            '    <input type="submit" value="Submit" onclick="clickFun(\'/newApplication\')">\n' +
+            '    <input type="submit" value="Submit"">\n' +
             '  </form>\n' +
             '</div>\n' +
             '\n' +
