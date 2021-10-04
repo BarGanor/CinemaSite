@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const path = require("path");
-const sql = require('./db-files/db.js');
+const sql = require('./db/db.js');
 const CRUD_operations = require("./CRUD-functions/CRUD-functions.js");
 
 const app = express();

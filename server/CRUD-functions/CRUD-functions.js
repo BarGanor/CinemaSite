@@ -1,4 +1,4 @@
-const sql = require("../db-files/db.js");
+const sql = require("../db/db.js");
 
 const getNewMovies = function(req, res) {
     const genre = req.params.genre
