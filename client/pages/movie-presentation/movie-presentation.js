@@ -7,7 +7,7 @@ class MoviePresentation {
     render(){
         const movieList =[];
         this.data.forEach((movie)=>{
-            movieList.push(new MovieCard(this.container, movie.movie_id,'', movie.title, movie.year + ', ' +movie.director, movie.genre, movie.description, movie.dt_start, movie.city, movie.cinema_name))
+            movieList.push(new MovieCard(this.container, movie.movie_id, movie.img_url, movie.title, movie.year + ', ' +movie.director, movie.genre, movie.description, movie.dt_start, movie.city, movie.cinema_name))
         })
         this.container.innerHTML = '';
 
@@ -123,7 +123,7 @@ class MovieCard{
         return response.json(); // parses JSON response into native JavaScript objects
     }
     successCallback(result) {
-        const hall= new Hall((result.slice(0,98)))
+        const hall= new Hall((result))
         hall.render();
 
     }

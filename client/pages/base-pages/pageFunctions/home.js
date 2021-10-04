@@ -83,7 +83,8 @@ class Home extends BasePage{
             const mm = date.getMonth() + 1;
             const y = date.getFullYear();
 
-            const someFormattedDate = y + '-'+ mm + '-'+ dd;
+            const someFormattedDate = '0'+dd + '/'+ mm + '/'+ y;
+
             dates.push(someFormattedDate)
         }
         return dates;

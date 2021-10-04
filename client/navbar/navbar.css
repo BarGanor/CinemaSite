@@ -11,3 +11,11 @@
     display: flex;
     align-content: end;
 }
+
+.navbar{
+    background-color: var(--smoothDarkBlue) ;
+}
+
+li > input{
+    background-color: var(--smoothDarkBlue) ;
+}

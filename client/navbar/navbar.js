@@ -78,11 +78,9 @@ class Navbar {
         const userNav = document.createElement('ul');
         userNav.className = 'navbar-nav mr-auto user';
 
-        const shopping_cart = new UserNavbarItem('Shopping Cart', '#cart')
-        const forUser = new UserNavbarItem(String(this.userObj.name) +'\'s orders', '#')
+        const forUser = new UserNavbarItem('Hey ' + String(this.userObj.name) + '!', '#')
         const logout = new UserNavbarItem('logout', '#logout')
 
-        userNav.appendChild(shopping_cart.render());
         userNav.appendChild(forUser.render());
         userNav.appendChild(logout.render());
 

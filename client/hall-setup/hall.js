@@ -77,8 +77,8 @@ class Hall{
             for (let item of activeSeats) {
                 activeList.push(Number(item.id));
             }
-            this.postData('/addToCart', {'activeList':activeList, show:this.data[0].show_id}).then(this.successCallback)
-            })
+            this.postData('/addToCart', {'activeList':activeList, show_id:this.data[0]['show_id']}).then(this.successCallback)
+        })
 
         this.container.appendChild(addToCartContainer);
         addToCartContainer.appendChild(addToCartDisplay);
@@ -99,15 +99,17 @@ class Hall{
         return response.json(); // parses JSON response into native JavaScript objects
     }
     successCallback(result) {
-        console.log(result);
+        const cart = new Cart();
+        cart.render(result.affectedRows);
+    };
 
-    }
     writeRows(){
         const hallContainer = document.createElement('div');
         hallContainer.id = 'hall-container';
         const screen = document.createElement('div');
         screen.className = 'screen';
 
+        console.log(this.data[49])
         const sides = ['left','right'];
         for (let i = 0; i < sides.length; i++) {
             const cinemaSeats = document.createElement('div');
@@ -140,4 +142,3 @@ class Hall{
         });
     }
 }
-
