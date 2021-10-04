@@ -1,4 +1,3 @@
-
 class FooterColumn{
     constructor(data) {
         this.data = data;
@@ -22,6 +21,18 @@ class FooterColumn{
                 listItem.addEventListener('click', ()=>{
                     const contact = new ContactUs()
                     contact.render();
+                })
+            }
+            else if (listItemData.text === 'Company') {
+                listItem.addEventListener('click', ()=>{
+                    const company = new getCompany()
+                    company.render();
+                })
+            }
+            else if (listItemData.text === 'Team'){
+                listItem.addEventListener('click', ()=>{
+                    const team = new getTeam()
+                    team.render();
                 })
             }
 
