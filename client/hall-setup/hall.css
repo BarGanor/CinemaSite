@@ -29,10 +29,33 @@
     justify-content: space-around;
 
 }
+
+.add-to-cart-container{
+    margin-bottom: 15%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.add-to-cart-container >h1{
+    font-size: 20px;
+    color: var(--lightWhite);
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--navbarBlack);
+
+}
+.add-to-cart-container >input{
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    display: flex;
+    justify-content: space-around;
+}
 #hall-container{
     display: flex;
     flex-direction: row;
-    margin-bottom: 20%;
+    margin-bottom: 5%;
 }
 .cinema-seats {
     display: flex;
@@ -60,6 +83,9 @@
     border-radius: 7px;
 }
 
+
+
+
 .left .cinema-row {
     transform: skew(-15deg);
     margin: 0 6px;
@@ -73,6 +99,27 @@
     transform: skew(20deg);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
+
+.left .seat.occupied {
+    width: 35px;
+    height: 50px;
+    border-radius: 7px;
+    background: white;
+    margin-bottom: 10px;
+    transform: skew(20deg);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.right .seat.occupied {
+    width: 35px;
+    height: 50px;
+    border-radius: 7px;
+    background: white;
+    margin-bottom: 10px;
+    transform: skew(-8deg);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
 .left .seat:not(:first-child) {
     margin-top: -32px;
 }

@@ -1,7 +1,7 @@
 class Hall{
 
-    constructor(container, data) {
-        this.container = container;
+    constructor(data) {
+        this.container = document.getElementById('container');
         this.data = data;
         this.rows = 7;
         this.seats = 7;
@@ -17,6 +17,7 @@ class Hall{
         const showCaseDiv = this.getShowCase();
         this.container.appendChild(showCaseDiv);
         this.writeRows(this.rows,this.seats);
+        this.addToCart();
 
     }
 
@@ -58,6 +59,49 @@ class Hall{
         return showCase
     }
 
+
+    addToCart(){
+        const addToCartContainer = document.createElement('div');
+        addToCartContainer.className = 'add-to-cart-container';
+
+        const addToCartDisplay = document.createElement('h1');
+        addToCartDisplay.textContent = 'These seats will be reserved until you finish the order.';
+
+        const addToCartBtn = document.createElement('input');
+        addToCartBtn.type = 'submit';
+        addToCartBtn.value = 'Add To Cart';
+
+        addToCartBtn.addEventListener('click', (e)=>{
+            const activeList = [];
+            const activeSeats = document.getElementsByClassName('active');
+            for (let item of activeSeats) {
+                activeList.push(Number(item.id));
+            }
+            this.postData('/addToCart', {'activeList':activeList, show:this.data[0].show_id}).then(this.successCallback)
+            })
+
+        this.container.appendChild(addToCartContainer);
+        addToCartContainer.appendChild(addToCartDisplay);
+        addToCartContainer.appendChild(addToCartBtn);
+    }
+
+
+    async postData(url, data) {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+
+        return response.json(); // parses JSON response into native JavaScript objects
+    }
+    successCallback(result) {
+        console.log(result);
+
+    }
     writeRows(){
         const hallContainer = document.createElement('div');
         hallContainer.id = 'hall-container';
@@ -68,15 +112,15 @@ class Hall{
         for (let i = 0; i < sides.length; i++) {
             const cinemaSeats = document.createElement('div');
             cinemaSeats.className = 'cinema-seats ' + sides[i];
-            for (let i = 0; i < this.rows; i++) {
+            for (let k = 0; k < this.rows; k++) {
 
                 const cinemaRow = document.createElement('div')
-                cinemaRow.className = 'cinema-row row-' + String(i);
+                cinemaRow.className = 'cinema-row row-' + String(k);
 
                 for (let j = 0; j < this.seats; j++) {
-                    // const seat_mode =
                     const seat = document.createElement('div');
-                    seat.className = 'seat';
+                    seat.className = 'seat ' + this.data[j*k*i].mode;
+                    seat.id = String((j+1)*(k+1)*(i+1));
                     cinemaRow.appendChild(seat);
                 }
                 cinemaSeats.appendChild(cinemaRow);

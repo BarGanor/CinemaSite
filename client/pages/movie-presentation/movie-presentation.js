@@ -75,7 +75,8 @@ class MovieCard{
         movieDescription.textContent = this.description;
 
         const orderBtn = this.orderBtn;
-        orderBtn.addEventListener('click', ()=>{
+        orderBtn.addEventListener('click', (e)=>{
+            e.preventDefault();
             this.postData('/showHall', {'movie_id':this.movieId, 'dt_start':this.dt_start, 'city':this.city, 'cinema_name':this.cinema_name}).then(this.successCallback);
         })
 
@@ -122,7 +123,8 @@ class MovieCard{
         return response.json(); // parses JSON response into native JavaScript objects
     }
     successCallback(result) {
-        console.log(result)
+        const hall= new Hall((result.slice(0,98)))
+        hall.render();
 
     }
 

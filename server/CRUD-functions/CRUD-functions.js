@@ -29,7 +29,7 @@ const validateUser = function (req, res) {
         console.log("validated user..");
         res.send(mysqlres);
     });
-}
+};
 
 const newShows = function (req, res) {
     const city = req.body.city;
@@ -46,7 +46,7 @@ const newShows = function (req, res) {
         console.log("got shows..");
         res.send(mysqlres);
     });
-}
+};
 
 const newUser = function (req, res) {
     const email = req.body.email;
@@ -65,25 +65,44 @@ const newUser = function (req, res) {
         console.log("query sent");
         res.send(mysqlres);
     });
-}
-const showHall = function (req,res){
+};
+
+
+const showHall = function (req,res) {
     const movie_id = req.body.movie_id;
     const dt_start = req.body.dt_start;
     const city = req.body.city;
     const cinema_name = req.body.cinema_name;
-    console.log(dt_start);
-    sql.query("select * from seats as se join shows as sh on se.show_id=sh.show_id where sh.movie_id=? and sh.dt_start=? and sh.city = ? and sh.cinema_name=? ", [movie_id, dt_start, city, cinema_name]  , (err, mysqlres) => {
+    sql.query("select * from seats as se join shows as sh on se.show_id=sh.show_id where sh.movie_id=? and sh.dt_start=? and sh.city = ? and sh.cinema_name=? ", [movie_id, dt_start, city, cinema_name], (err, mysqlres) => {
+        if (err) {
+            console.log("error: ", err);
+            res.status(400).send({
+                message: "error in getting seats: " +
+                    err
+            });
+            return;
+        }
+        res.send(mysqlres);
+    });
+}
+
+const addToCart = function (req,res){
+    const show_id = req.body.show;
+    const activeList = req.body.activeList;
+
+    sql.query("UPDATE SEATS SET mode ='active' where  show_id=? and seat_id in (?)", [show_id, activeList]  , (err, mysqlres) => {
         if (err) {
             console.log("error: ", err);
             res.status(400).send({message: "error in getting show: " +
                     err});
             return;
         }
+
         res.send(mysqlres);
     });
 
-}
+};
 
-module.exports = {getNewMovies:getNewMovies, validateUser:validateUser, newShows:newShows, newUser:newUser, showHall:showHall};
+module.exports = {getNewMovies:getNewMovies, validateUser:validateUser, newShows:newShows, newUser:newUser, showHall:showHall, addToCart:addToCart};
 
 
