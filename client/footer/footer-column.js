@@ -31,8 +31,8 @@ class FooterColumn{
             }
             else if (listItemData.text === 'Team'){
                 listItem.addEventListener('click', ()=>{
-                    const team = new getTeam()
-                    team.render();
+                    const about = new About(null);
+                    about.render();
                 })
             }
 

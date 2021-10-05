@@ -1,15 +1,16 @@
 class About{
     constructor(container) {
-        this.container = container;
+        this.container =  document.getElementById('container');
     }
 
     render() {
+       this.container.innerHTML =''
         const pageContainer = document.createElement('div');
         pageContainer.className = 'about-container';
 
         const ourTeam = document.createElement('h2');
         ourTeam.textContent = 'Our Team';
-        ourTeam.id = 'our-team'
+        ourTeam.id = 'our-team';
 
         pageContainer.appendChild(this.aboutSection);
         pageContainer.appendChild(this.getCardRowElem(this.employeesObj));
@@ -53,14 +54,10 @@ class About{
     getCardRowElem(employees){
         const row = document.createElement('div');
         row.className = 'about-card-row';
-
-        for (const employee in employees) {
-
-            if (employees.hasOwnProperty(employee)){
-                let columnElem = this.getCardColumnElem(employee);
-                row.appendChild(columnElem);
-            }
-        }
+        employees.forEach((employee)=>{
+            let columnElem = this.getCardColumnElem(employee);
+            row.appendChild(columnElem);
+        })
 
         return row;
     }
@@ -72,14 +69,14 @@ class About{
         const card = document.createElement('div');
         card.className = 'about-card';
 
-        // const employeeImg = document.createElement('img');
-        // employeeImg.src = employee.img_url;
-        // employeeImg.alt = employee.name;
-        // employeeImg.className = 'employee-img';
+        const employeeImg = document.createElement('img');
+        employeeImg.src = employee.img_url;
+        employeeImg.alt = employee.name;
+        employeeImg.className = 'employee-img';
 
         const detailsContainer = this.getDetailsContainer(employee);
 
-        // card.appendChild(employeeImg);
+        card.appendChild(employeeImg);
         card.appendChild(detailsContainer);
 
         column.appendChild(card);
@@ -104,15 +101,11 @@ class About{
         const employeeEmail = document.createElement('p');
         employeeEmail.textContent = employee.email;
 
-        const contactBtn = document.createElement('p');
-        contactBtn.textContent = 'contact';
-        contactBtn.className = 'contact-button';
 
         detailsContainer.appendChild(employeeName);
         detailsContainer.appendChild(employeeTitle);
         detailsContainer.appendChild(employeeDescription);
         detailsContainer.appendChild(employeeEmail);
-        detailsContainer.appendChild(contactBtn);
 
         return detailsContainer;
 

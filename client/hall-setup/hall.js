@@ -121,7 +121,13 @@ class Hall{
 
                 for (let j = 0; j < this.seats; j++) {
                     const seat = document.createElement('div');
-                    seat.className = 'seat ' + this.data[j*k*i].mode;
+                    if (k===6){
+                        seat.className = 'seat ' + this.data[(j+1)*(k)*(i+1)].mode;
+                    }
+                    else{
+                        seat.className = 'seat ' + this.data[(j+1)*(k+1)*(i+1)].mode;
+
+                    }
                     seat.id = String((j+1)*(k+1)*(i+1));
                     cinemaRow.appendChild(seat);
                 }

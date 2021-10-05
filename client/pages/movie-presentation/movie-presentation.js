@@ -1,13 +1,14 @@
 class MoviePresentation {
-    constructor(container, data) {
+    constructor(container, data, byGenre) {
         this.container = container;
         this.data = data;
+        this.byGenre = byGenre
     }
 
     render(){
         const movieList =[];
         this.data.forEach((movie)=>{
-            movieList.push(new MovieCard(this.container, movie.movie_id, movie.img_url, movie.title, movie.year + ', ' +movie.director, movie.genre, movie.description, movie.dt_start, movie.city, movie.cinema_name))
+            movieList.push(new MovieCard(this.container, movie.movie_id, movie.img_url, movie.title, movie.year + ', ' +movie.director, movie.genre, movie.description, movie.dt_start, movie.city, movie.cinema_name, this.byGenre))
         })
         this.container.innerHTML = '';
 
@@ -26,12 +27,21 @@ class MoviePresentation {
             pageContainer.appendChild(no_movies);
             this.container.appendChild(pageContainer);
         }
+        console.log(this.byGenre)
+        if (this.byGenre){
+            const elements = document.getElementsByClassName('btn-primary');
+            while(elements.length > 0){
+                elements[0].parentNode.removeChild(elements[0]);
+            }
+        }
+
     }
 }
 
 class MovieCard{
-    constructor(container,movie_id, srcLink, movieName, yearAndDirector,  genres, description, dt_start, city, cinema_name) {
+    constructor(container,movie_id, srcLink, movieName, yearAndDirector,  genres, description, dt_start, city, cinema_name, byGenre) {
         this.container = container;
+        this.byGenre = byGenre;
         this.movieId = movie_id;
         this.srcLink = srcLink;
         this.movieName = movieName;
@@ -73,6 +83,7 @@ class MovieCard{
         const movieDescription = document.createElement('p');
         movieDescription.className = 'text';
         movieDescription.textContent = this.description;
+
 
         const orderBtn = this.orderBtn;
         orderBtn.addEventListener('click', (e)=>{

@@ -26,7 +26,7 @@ class Footer {
         }),
             new FooterColumn({
                 'header': 'About',
-                'listItems': [{'url': '#/about/company', 'text': 'Company'}, {'url': '#about/team', 'text': 'Team'}]
+                'listItems': [{'url': '#about/team', 'text': 'Team'}]
             })];
     }
 

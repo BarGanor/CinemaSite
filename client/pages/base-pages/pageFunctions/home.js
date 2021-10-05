@@ -108,7 +108,7 @@ class Home extends BasePage{
     }
 
     successCallback(result) {
-        const moviePresentation = new MoviePresentation(document.getElementById('container'), result)
+        const moviePresentation = new MoviePresentation(document.getElementById('container'), result, false)
         moviePresentation.render();
     }
 

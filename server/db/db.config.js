@@ -1,6 +1,6 @@
 module.exports = {
     HOST: "localhost",
     USER: "root",
-    PASSWORD: '123456',
-    DB: 'livreordb2'
+    PASSWORD: 'Bg8187915',
+    DB: 'cinema_db'
 };
