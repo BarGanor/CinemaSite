@@ -50,7 +50,6 @@ class ContactUs {
             '\n' +
             '<br/>' +
             '<div class="container">\n' +
-            '  <form action="/insertApplication" method="post">\n' +
             '    <label for="">Full Name</label>\n' +
             '    <input type="text" id="name" name="name" placeholder="Your name..">\n' +
             '\n' +
@@ -308,7 +307,6 @@ class ContactUs {
             '    <textarea id="subject" name="subject" placeholder="Write something.." style="height:70px"></textarea>\n' +
             '\n' +
             '    <input type="submit" value="Submit"">\n' +
-            '  </form>\n' +
             '</div>\n' +
             '\n' +
             '</body>\n' +

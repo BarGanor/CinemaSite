@@ -73,7 +73,10 @@ const showHall = function (req,res) {
     const movie_id = req.body.movie_id;
     const dt_start = req.body.dt_start;
     const city = req.body.city;
-    const cinema_name = req.body.cinema_name;
+    let cinema_name = req.body.cinema_name;
+    if (cinema_name==='') {
+        cinema_name='cinema city'
+    }
     sql.query("select * from seats as se join shows as sh on se.show_id=sh.show_id where sh.movie_id=? and sh.city = ? and sh.cinema_name=? -- and sh.dt_start=? ", [movie_id, city, cinema_name], (err, mysqlres) => {
         if (err) {
             console.log("error: ", err);
@@ -130,6 +133,8 @@ const createNewApplication = function(req,res){
         return;
     });
 };
+
+
 
 
 module.exports = {getNewMovies:getNewMovies, validateUser:validateUser, newShows:newShows, newUser:newUser, showHall:showHall, addToCart:addToCart, createNewApplication};

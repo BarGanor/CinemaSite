@@ -27,7 +27,9 @@ app.post("/validation", CRUD_operations.validateUser);
 app.post("/newShows", CRUD_operations.newShows);
 app.post("/newUser", CRUD_operations.newUser);
 app.post("/showHall", CRUD_operations.showHall);
-app.post("/addToCart", CRUD_operations.addToCart);
+app.post("/addToCart", CRUD_operations.addToCart)
+
+
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
