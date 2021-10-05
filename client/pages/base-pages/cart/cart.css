@@ -1,8 +1,17 @@
-.container {
-    margin: auto;
-    width: 80%;
+
+.shopping-cart-container{
+    align-items: center;
 }
 
+.card-cart{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 5vw;
+    height: 100%;
+    width: 30%;
+    background-color: var(--cardBlack);
+}
 .badge {
     background-color: #6394F8;
     border-radius: 10px;

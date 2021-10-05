@@ -5,12 +5,14 @@ class Cart {
     }
 
     render(result){
+
         this.container.innerHTML = this.getCard(result)
+        this.container.className = 'shopping-cart-container'
     }
 
     getCard(result){
         console.log(result)
-        return '<div class="card">\n' +
+        return '<div class="card-cart">\n' +
             '    <div class="shopping-cart">\n' +
             '\n' +
             '        <ul class="shopping-cart-items" id="shopping-cart-items">\n' +
