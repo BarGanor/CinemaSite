@@ -23,7 +23,7 @@ class Cart {
             '                <span class="item-quantity">Quantity: '+ result+'</span>\n' +
             '            </li>\n' +
             '\n' +
-            '        <a href="pages/base-pages/payment/payment.html">HTML tutorial</a>\n' +
+            '        <a href="pages/base-pages/payment/payment.html">Pay now</a>\n' +
             '    </div> <!--end shopping-cart -->\n' +
             '</div> <!--end container -->'
     }
