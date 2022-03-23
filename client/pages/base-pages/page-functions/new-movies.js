@@ -23,7 +23,7 @@ class NewMovies extends BasePage{
         headerDiv.className = 'card-header';
 
         const headerText = document.createElement('h3');
-        headerText.textContent = 'Pick A City';
+        headerText.textContent = 'Pick A Genre';
 
         headerDiv.appendChild(headerText);
         return headerDiv;

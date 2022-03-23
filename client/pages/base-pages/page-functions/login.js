@@ -161,15 +161,6 @@ class Login extends BasePage{
         signUpDiv.appendChild(signUpLink);
         footerDiv.appendChild(signUpDiv);
 
-        const forgotPwDiv = document.createElement('div');
-        forgotPwDiv.className = 'd-flex justify-content-center';
-
-        const forgotPwLink = document.createElement('a');
-        forgotPwLink.href = '#';
-        forgotPwLink.text = 'Forgot your password?';
-
-        forgotPwDiv.appendChild(forgotPwLink);
-        footerDiv.appendChild(forgotPwDiv);
 
         return footerDiv;
     }
