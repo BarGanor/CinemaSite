@@ -1,4 +1,4 @@
-# web-project-g9
+# Cinema site 
 
 ### This repository is a "cinema ticket order" web app.
 
